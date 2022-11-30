@@ -1,0 +1,10 @@
+fastapi
+aioredis==2.0.1
+pytest
+pydantic
+pytest_asyncio
+requests
+httpx
+redis-om
+uvicorn
+python-decouple

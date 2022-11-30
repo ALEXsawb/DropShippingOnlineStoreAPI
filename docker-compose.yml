@@ -1,0 +1,23 @@
+version: "3.10"
+services:
+  cache:
+    image: "redis/redis-stack:latest"
+    env_file:
+      - ./.env
+    ports:
+      - "6379:6379"
+    volumes:
+      - "redis_data:/redis/cache/online_store/"
+
+  online_store:
+    build: '.'
+    depends_on:
+      - cache
+    env_file:
+      - ./.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ".:/code"
+volumes:
+  redis_data:
